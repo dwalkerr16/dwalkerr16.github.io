@@ -69,28 +69,6 @@
                 FormFieldName: "***Please fill***",
                 DataverseFieldName: "lastname",
             },
- <!-- 
-            {
-                FormFieldName: "***Please fill***",
-                DataverseFieldName: "chr_leadsourcecode",
-                DataverseFieldValue: [
-                    { FormValue: "***Please fill***", DataverseValue: "126770010" }, // Cience
-                    { FormValue: "***Please fill***", DataverseValue: "126770002" }, // Company website
-                    { FormValue: "***Please fill***", DataverseValue: "126770001" }, // D&B/Hoovers
-                    { FormValue: "***Please fill***", DataverseValue: "126770012" }, // Inbound Support Request
-                    { FormValue: "***Please fill***", DataverseValue: "126770003" }, // LinkedIn
-                    { FormValue: "***Please fill***", DataverseValue: "126770011" }, // Marketo
-                    { FormValue: "***Please fill***", DataverseValue: "126770004" }, // MDM
-                    { FormValue: "***Please fill***", DataverseValue: "126770005" }, // Other
-                    { FormValue: "***Please fill***", DataverseValue: "126770008" }, // Panjiva
-                    { FormValue: "***Please fill***", DataverseValue: "126770000" }, // Personal Network
-                    { FormValue: "***Please fill***", DataverseValue: "126770006" }, // Referral from Existing Contact
-                    { FormValue: "***Please fill***", DataverseValue: "126770007" }, // Social Media (other than LinkedIn)
-                    { FormValue: "***Please fill***", DataverseValue: "126770009" }, // ZoomInfo
-                ],
-            },
-            -->
-            
             {
                 FormFieldName: "***Please fill***",
                 DataverseFieldName: "emailaddress1",
@@ -112,6 +90,7 @@
         ];
 
         form.addEventListener("submit", (e) => {
+            debugger;
              e.preventDefault();
             const serializedForm = d365mktformcapture.serializeForm(form, mappings);
             // console.log(JSON.stringify(serializedForm)); // NOTE: enable for debugging
