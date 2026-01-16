@@ -69,65 +69,44 @@
                 FormFieldName: "***Please fill***",
                 DataverseFieldName: "lastname",
             },
+ <!-- 
+            {
+                FormFieldName: "***Please fill***",
+                DataverseFieldName: "chr_leadsourcecode",
+                DataverseFieldValue: [
+                    { FormValue: "***Please fill***", DataverseValue: "126770010" }, // Cience
+                    { FormValue: "***Please fill***", DataverseValue: "126770002" }, // Company website
+                    { FormValue: "***Please fill***", DataverseValue: "126770001" }, // D&B/Hoovers
+                    { FormValue: "***Please fill***", DataverseValue: "126770012" }, // Inbound Support Request
+                    { FormValue: "***Please fill***", DataverseValue: "126770003" }, // LinkedIn
+                    { FormValue: "***Please fill***", DataverseValue: "126770011" }, // Marketo
+                    { FormValue: "***Please fill***", DataverseValue: "126770004" }, // MDM
+                    { FormValue: "***Please fill***", DataverseValue: "126770005" }, // Other
+                    { FormValue: "***Please fill***", DataverseValue: "126770008" }, // Panjiva
+                    { FormValue: "***Please fill***", DataverseValue: "126770000" }, // Personal Network
+                    { FormValue: "***Please fill***", DataverseValue: "126770006" }, // Referral from Existing Contact
+                    { FormValue: "***Please fill***", DataverseValue: "126770007" }, // Social Media (other than LinkedIn)
+                    { FormValue: "***Please fill***", DataverseValue: "126770009" }, // ZoomInfo
+                ],
+            },
+            -->
+            
             {
                 FormFieldName: "***Please fill***",
                 DataverseFieldName: "emailaddress1",
             },
             {
                 FormFieldName: "***Please fill***",
-                DataverseFieldName: "mobilephone",
+                DataverseFieldName: "telephone1",
+            },
+            {
+                DataverseFieldName: "chr_countryid",
+                DataverseFieldValue: "{\"Id\":\"***Please fill***\",\"LogicalName\":\"chr_statecountry\"}",
             },
             {
                 FormFieldName: "***Please fill***",
-                DataverseFieldName: "address1_line1",
-            },
-            {
-                FormFieldName: "***Please fill***",
-                DataverseFieldName: "address1_city",
-            },
-            {
-                FormFieldName: "***Please fill***",
-                DataverseFieldName: "address1_postalcode",
-            },
-            {
-                FormFieldName: "***Please fill***",
-                DataverseFieldName: "address1_stateorprovince",
-            },
-            {
-                FormFieldName: "***Please fill***",
-                DataverseFieldName: "address1_country",
-            },
-            {
-                FormFieldName: "***Please fill***",
-                DataverseFieldName: "chr_utmcampaign",
-            },
-            {
-                FormFieldName: "***Please fill***",
-                DataverseFieldName: "chr_utmcontent",
-            },
-            {
-                FormFieldName: "***Please fill***",
-                DataverseFieldName: "chr_utmmedium",
-            },
-            {
-                FormFieldName: "***Please fill***",
-                DataverseFieldName: "chr_utmsource",
-            },
-            {
-                FormFieldName: "***Please fill***",
-                DataverseFieldName: "chr_utmstring",
-            },
-            {
-                FormFieldName: "***Please fill***",
-                DataverseFieldName: "chr_utmterm",
-            },
-            {
-                FormFieldName: "***Please fill***",
-                DataverseFieldName: "chr_isreceivedconsenttostorecontactdata",
-                DataverseFieldValue: [
-                    { FormValue: "***Please fill***", DataverseValue: "1" }, // Yes
-                    { FormValue: "***Please fill***", DataverseValue: "0" }, // No
-                ],
+                DataverseFieldName: "msdynmkt_topicid;channels;optinwhenchecked",
+                DataverseFieldValue: "3de23440-47a8-f011-bbd3-000d3a32f9c7;Email,Text;true",
             },
 
         ];
@@ -138,13 +117,14 @@
             const payload = serializedForm.SerializedForm.build();
 
             const captureConfig = {
-                FormId: "f4a9c71d-02e5-f011-8544-0022480aa6df",
+                FormId: "4a5f845f-9fda-f011-8544-000d3a32f9c7",
                 FormApiUrl: "https://public-usa.mkt.dynamics.com/api/v1.0/orgs/22d0e406-f60c-4b03-b846-4d0aaf81a1ab/landingpageforms"
             }
             d365mktformcapture.submitForm(captureConfig, payload);
         }, true);
     });
 </script>
+
 
  <!-- CI Journeys Form Embed -->  
   
