@@ -58,31 +58,35 @@
 <script>
     // NOTE: for reference see https://go.microsoft.com/fwlink/?linkid=2250770
 
-    d365mktformcapture.waitForElement("***Please fill***") // example: "#form1" as a selector for form with id="form1"
+    d365mktformcapture.waitForElement("***#form1") // example: "#form1" as a selector for form with id="form1"
     .then(form => {
         const mappings = [
             {
-                FormFieldName: "***Please fill***",
+                FormFieldName: "firstname",
                 DataverseFieldName: "firstname",
             },
             {
-                FormFieldName: "***Please fill***",
+                FormFieldName: "lastname",
                 DataverseFieldName: "lastname",
             },
             {
-                FormFieldName: "***Please fill***",
+                FormFieldName: "emailaddress1",
                 DataverseFieldName: "emailaddress1",
             },
             {
-                FormFieldName: "***Please fill***",
+                FormFieldName: "telephone1",
                 DataverseFieldName: "telephone1",
             },
             {
-                DataverseFieldName: "chr_countryid",
-                DataverseFieldValue: "{\"Id\":\"***Please fill***\",\"LogicalName\":\"chr_statecountry\"}",
+                FormFieldName: "address1_line1",
+                DataverseFieldName: "address1_line1",
             },
             {
-                FormFieldName: "***Please fill***",
+                FormFieldName: "testfield",
+                DataverseFieldName: "testfield",
+            },
+            {
+                FormFieldName: "chkOptin",
                 DataverseFieldName: "msdynmkt_topicid;channels;optinwhenchecked",
                 DataverseFieldValue: "3de23440-47a8-f011-bbd3-000d3a32f9c7;Email,Text;true",
             },
