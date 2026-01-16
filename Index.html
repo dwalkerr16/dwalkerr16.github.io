@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>        
+        
   <!-- CI Journeys Web Tracking Script -->
 
         <script>
@@ -10,21 +11,23 @@
                     name: "MSCI",
                     cfg: {
 
-                        ingestionKey: "5684359cf4544328bbcaa3fb0006a129-42beec5c-d9e4-45d1-8c87-3a511036d2ab-7159",
+                        ingestionKey: "eb5611e8b6b649d994c755dd862b6e54-f632e5cb-395b-4455-bed8-d8df431a9b0a-7447",
                         endpointUrl: "https://mobile.events.data.microsoft.com/OneCollector/1.0/",
                         autoCapture: {
                             view: true,
                             click: true
                         },
                         orgInfo: {
-                            orgId: "19421e43-dbf9-4f04-8dd8-816dfed67c31",
-                            orgTenantId: "6c29e218-27fb-4a2f-b6c4-73b0aa32ec21",
+                            orgId: "22d0e406-f60c-4b03-b846-4d0aaf81a1ab",
+                            orgTenantId: "d441ad83-6235-46d6-ab1a-89744a91b1d8",
                             orgGeo: "USA"
                         }
                     }
                 });
-  
-  </script>
+        </script>
+
+  <!-- CI Journeys Web Tracking Script -->
+        
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
          <title>CI Journeys Form Test</title>
@@ -33,18 +36,117 @@
         <meta type="xrm/designer/setting" name="layout-editable" value="marketing-designer-layout-editable">
     </head>
     <body>
-
+<form id="form1">
+<input name="firstname" type="text" placeholder="First Name" required>
+<input name="lastname" type="text" placeholder="Last Name" required>
+<input name="emailaddress1" type="email" placeholder="Email Address" required>
+<input name="telephone1" type="tel" placeholder="Phone Number">
+<input name="address1_line1" type="text" placeholder="Street 1">
+<input name="chr_webformcompanyname" type="text" placeholder="Company Name">
+<input name="address1_country" type="text" placeholder="Country">
+<input name="testfield" type="text" placeholder="Text Field">
+<input type="checkbox" id="chkOptin" name="chkOptin" value="false">
+<a href="https://cijpocstorage.blob.core.windows.net/$web/non-form.html" target="_blank">https://cijpocstorage.blob.core.windows.net/$web/non-form.html</a>
+<label for="chkOptin">Opt in to blogs</label>
+<button type="submit">Submit</button>
+</form>
   <h1>CI Journeys Tracking + Form Test</h1>
 
   <!-- CI Journeys Form Embed -->
- <!--  
-  <div data-form-id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"></div>
 
-  <script
-    src="https://<your-form-domain>/form-loader.js"
-    async
-  ></script>
-  -->
+<script src='https://cxppusa1formui01cdnsa01-endpoint.azureedge.net/usa/FormCapture/FormCapture.bundle.js'></script>
+<script>
+    // NOTE: for reference see https://go.microsoft.com/fwlink/?linkid=2250770
+
+    d365mktformcapture.waitForElement("***Please fill***") // example: "#form1" as a selector for form with id="form1"
+    .then(form => {
+        const mappings = [
+            {
+                FormFieldName: "***Please fill***",
+                DataverseFieldName: "firstname",
+            },
+            {
+                FormFieldName: "***Please fill***",
+                DataverseFieldName: "lastname",
+            },
+            {
+                FormFieldName: "***Please fill***",
+                DataverseFieldName: "emailaddress1",
+            },
+            {
+                FormFieldName: "***Please fill***",
+                DataverseFieldName: "mobilephone",
+            },
+            {
+                FormFieldName: "***Please fill***",
+                DataverseFieldName: "address1_line1",
+            },
+            {
+                FormFieldName: "***Please fill***",
+                DataverseFieldName: "address1_city",
+            },
+            {
+                FormFieldName: "***Please fill***",
+                DataverseFieldName: "address1_postalcode",
+            },
+            {
+                FormFieldName: "***Please fill***",
+                DataverseFieldName: "address1_stateorprovince",
+            },
+            {
+                FormFieldName: "***Please fill***",
+                DataverseFieldName: "address1_country",
+            },
+            {
+                FormFieldName: "***Please fill***",
+                DataverseFieldName: "chr_utmcampaign",
+            },
+            {
+                FormFieldName: "***Please fill***",
+                DataverseFieldName: "chr_utmcontent",
+            },
+            {
+                FormFieldName: "***Please fill***",
+                DataverseFieldName: "chr_utmmedium",
+            },
+            {
+                FormFieldName: "***Please fill***",
+                DataverseFieldName: "chr_utmsource",
+            },
+            {
+                FormFieldName: "***Please fill***",
+                DataverseFieldName: "chr_utmstring",
+            },
+            {
+                FormFieldName: "***Please fill***",
+                DataverseFieldName: "chr_utmterm",
+            },
+            {
+                FormFieldName: "***Please fill***",
+                DataverseFieldName: "chr_isreceivedconsenttostorecontactdata",
+                DataverseFieldValue: [
+                    { FormValue: "***Please fill***", DataverseValue: "1" }, // Yes
+                    { FormValue: "***Please fill***", DataverseValue: "0" }, // No
+                ],
+            },
+
+        ];
+
+        form.addEventListener("submit", (e) => {
+            const serializedForm = d365mktformcapture.serializeForm(form, mappings);
+            // console.log(JSON.stringify(serializedForm)); // NOTE: enable for debugging
+            const payload = serializedForm.SerializedForm.build();
+
+            const captureConfig = {
+                FormId: "f4a9c71d-02e5-f011-8544-0022480aa6df",
+                FormApiUrl: "https://public-usa.mkt.dynamics.com/api/v1.0/orgs/22d0e406-f60c-4b03-b846-4d0aaf81a1ab/landingpageforms"
+            }
+            d365mktformcapture.submitForm(captureConfig, payload);
+        }, true);
+    });
+</script>
+
+ <!-- CI Journeys Form Embed -->  
   
 </body>
 </html>
