@@ -49,8 +49,8 @@
 <script src='https://cxppusa1formui01cdnsa01-endpoint.azureedge.net/usa/FormCapture/FormCapture.bundle.js'></script>
 <script>
     // NOTE: for reference see https://go.microsoft.com/fwlink/?linkid=2250770
-    
-    d365mktformcapture.waitForElement("#Form1") // example: "#form1" as a selector for form with id="form1"
+
+    d365mktformcapture.waitForElement("#form1") // example: "#form1" as a selector for form with id="form1"
     .then(form => {
         const mappings = [
             {
@@ -69,7 +69,7 @@
 
         form.addEventListener("submit", (e) => {
             const serializedForm = d365mktformcapture.serializeForm(form, mappings);
-            console.log(JSON.stringify(serializedForm)); // NOTE: enable for debugging
+            // console.log(JSON.stringify(serializedForm)); // NOTE: enable for debugging
             const payload = serializedForm.SerializedForm.build();
 
             const captureConfig = {
