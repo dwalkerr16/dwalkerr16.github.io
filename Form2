@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>        
+        
+  <!-- CI Journeys Web Tracking Script -->
+
+
+  <!-- CI Journeys Web Tracking Script -->
+        
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <title>CI Journeys Form Test</title>
+        <meta name="referrer" content="never">
+        <meta type="xrm/designer/setting" name="type" value="marketing-designer-content-editor-document">
+        <meta type="xrm/designer/setting" name="layout-editable" value="marketing-designer-layout-editable">
+    </head>
+    <body>
+<form id="form1">
+<input name="firstname" type="text" placeholder="First Name" required>
+<input name="lastname" type="text" placeholder="Last Name" required>
+<input name="emailaddress1" type="email" placeholder="Email Address" required>
+<button type="submit">Submit</button>
+</form>
+  <h1>CI Journeys Tracking + Form Test</h1>
+
+  <!-- CI Journeys Form Embed -->
+
+<script src='https://cxppusa1formui01cdnsa01-endpoint.azureedge.net/usa/FormCapture/FormCapture.bundle.js'></script>
+<script>
+    // NOTE: for reference see https://go.microsoft.com/fwlink/?linkid=2250770
+
+    d365mktformcapture.waitForElement("#form1") // example: "#form1" as a selector for form with id="form1"
+    .then(form => {
+        const mappings = [
+            {
+                FormFieldName: "firstname",
+                DataverseFieldName: "firstname",
+            },
+            {
+                FormFieldName: "lastname",
+                DataverseFieldName: "lastname",
+            },
+            {
+                FormFieldName: "emailaddress1",
+                DataverseFieldName: "emailaddress1",
+            },
+        ];
+
+        form.addEventListener("submit", (e) => {
+            const serializedForm = d365mktformcapture.serializeForm(form, mappings);
+            console.log(JSON.stringify(serializedForm)); // NOTE: enable for debugging
+            const payload = serializedForm.SerializedForm.build();
+
+            const captureConfig = {
+                FormId: "4d51538b-00cb-f011-bbd3-000d3a33a3d6",
+                FormApiUrl: "https://public-usa.mkt.dynamics.com/api/v1.0/orgs/6e80e1eb-af41-4507-9f42-68851f1951c2/landingpageforms"
+            }
+            d365mktformcapture.submitForm(captureConfig, payload);
+        }, true);
+    });
+</script>
+
+ <!-- CI Journeys Form Embed -->  
+  
+</body>
+</html>
