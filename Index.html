@@ -4,6 +4,7 @@
         
   <!-- CI Journeys Web Tracking Script -->
 
+
         <script>
                 (function (a, t, i) { var e = "MSCI"; var s = "Analytics"; var o = e + "queue"; a[o] = a[o] || []; var r = a[e] || function (n) { var t = {}; t[s] = {}; function e(e) { while (e.length) { var r = e.pop(); t[s][r] = function (e) { return function () { a[o].push([e, n, arguments]) } }(r) } } var r = "track"; var i = "set"; e([r + "Event", r + "View", r + "Action", i + "Config", i + "Property", i + "User", "initialize", "teardown"]); return t }(i.name); var n = i.name; if (!a[e]) { a[n] = r[s]; a[o].push(["new", n]); setTimeout(function () { var e = "script"; var r = t.createElement(e); r.async = 1; r.src = i.src; var n = t.getElementsByTagName(e)[0]; n.parentNode.insertBefore(r, n) }, 1) } else { a[n] = new r[s] } if (i.user) { a[n].setUser(i.user) } if (i.props) { for (var c in i.props) { a[n].setProperty(c, i.props[c]) } } a[n].initialize(i.cfg) })(window, document, {
 
@@ -11,15 +12,15 @@
                     name: "MSCI",
                     cfg: {
 
-                        ingestionKey: "eb5611e8b6b649d994c755dd862b6e54-f632e5cb-395b-4455-bed8-d8df431a9b0a-7447",
+                        ingestionKey: "0684faad1fa84f51a61927c82a2b9ee8-96bcd81d-fe4d-4475-89f0-e3fcff0d9fe7-7575",
                         endpointUrl: "https://mobile.events.data.microsoft.com/OneCollector/1.0/",
                         autoCapture: {
                             view: true,
                             click: true
                         },
                         orgInfo: {
-                            orgId: "22d0e406-f60c-4b03-b846-4d0aaf81a1ab",
-                            orgTenantId: "d441ad83-6235-46d6-ab1a-89744a91b1d8",
+                            orgId: "6e80e1eb-af41-4507-9f42-68851f1951c2",
+                            orgTenantId: "f2ad4d2a-2b3f-4e20-b9c2-0b4ed161543b",
                             orgGeo: "USA"
                         }
                     }
@@ -40,14 +41,6 @@
 <input name="firstname" type="text" placeholder="First Name" required>
 <input name="lastname" type="text" placeholder="Last Name" required>
 <input name="emailaddress1" type="email" placeholder="Email Address" required>
-<input name="telephone1" type="tel" placeholder="Phone Number">
-<input name="address1_line1" type="text" placeholder="Street 1">
-<input name="chr_webformcompanyname" type="text" placeholder="Company Name">
-<input name="address1_country" type="text" placeholder="Country">
-<input name="testfield" type="text" placeholder="Text Field">
-<!-- <input type="checkbox" id="chkOptin" name="chkOptin" value="false"> -->
-<!--<a href="https://cijpocstorage.blob.core.windows.net/$web/non-form.html" target="_blank">https://cijpocstorage.blob.core.windows.net/$web/non-form.html</a> -->
-<label for="chkOptin">Opt in to blogs</label>
 <button type="submit">Submit</button>
 </form>
   <h1>CI Journeys Tracking + Form Test</h1>
@@ -58,7 +51,7 @@
 <script>
     // NOTE: for reference see https://go.microsoft.com/fwlink/?linkid=2250770
 
-    d365mktformcapture.waitForElement("#form1") // example: "#form1" as a selector for form with id="form1"
+    d365mktformcapture.waitForElement("#Form1") // example: "#form1" as a selector for form with id="form1"
     .then(form => {
         const mappings = [
             {
@@ -73,42 +66,22 @@
                 FormFieldName: "emailaddress1",
                 DataverseFieldName: "emailaddress1",
             },
-            {
-                FormFieldName: "telephone1",
-                DataverseFieldName: "telephone1",
-            },
-            {
-                FormFieldName: "address1_line1",
-                DataverseFieldName: "address1_line1",
-            },
-            {
-                FormFieldName: "testfield",
-                DataverseFieldName: "testfield",
-            },
-            {
-                FormFieldName: "chkOptin",
-                DataverseFieldName: "msdynmkt_topicid;channels;optinwhenchecked",
-                DataverseFieldValue: "3de23440-47a8-f011-bbd3-000d3a32f9c7;Email,Text;true",
-            },
 
         ];
 
         form.addEventListener("submit", (e) => {
-
-             e.preventDefault();
             const serializedForm = d365mktformcapture.serializeForm(form, mappings);
             // console.log(JSON.stringify(serializedForm)); // NOTE: enable for debugging
             const payload = serializedForm.SerializedForm.build();
 
             const captureConfig = {
-                FormId: "4a5f845f-9fda-f011-8544-000d3a32f9c7",
-                FormApiUrl: "https://public-usa.mkt.dynamics.com/api/v1.0/orgs/22d0e406-f60c-4b03-b846-4d0aaf81a1ab/landingpageforms"
+                FormId: "4d51538b-00cb-f011-bbd3-000d3a33a3d6",
+                FormApiUrl: "https://public-usa.mkt.dynamics.com/api/v1.0/orgs/6e80e1eb-af41-4507-9f42-68851f1951c2/landingpageforms"
             }
             d365mktformcapture.submitForm(captureConfig, payload);
         }, true);
     });
 </script>
-
 
  <!-- CI Journeys Form Embed -->  
   
