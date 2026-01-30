@@ -4,7 +4,27 @@
         
   <!-- CI Journeys Web Tracking Script -->
 
+        <script>
+                (function (a, t, i) { var e = "MSCI"; var s = "Analytics"; var o = e + "queue"; a[o] = a[o] || []; var r = a[e] || function (n) { var t = {}; t[s] = {}; function e(e) { while (e.length) { var r = e.pop(); t[s][r] = function (e) { return function () { a[o].push([e, n, arguments]) } }(r) } } var r = "track"; var i = "set"; e([r + "Event", r + "View", r + "Action", i + "Config", i + "Property", i + "User", "initialize", "teardown"]); return t }(i.name); var n = i.name; if (!a[e]) { a[n] = r[s]; a[o].push(["new", n]); setTimeout(function () { var e = "script"; var r = t.createElement(e); r.async = 1; r.src = i.src; var n = t.getElementsByTagName(e)[0]; n.parentNode.insertBefore(r, n) }, 1) } else { a[n] = new r[s] } if (i.user) { a[n].setUser(i.user) } if (i.props) { for (var c in i.props) { a[n].setProperty(c, i.props[c]) } } a[n].initialize(i.cfg) })(window, document, {
 
+                    src: "https://cxppusa1rdrect01sa02cdn-endpoint.azureedge.net/webtracking/WebTracking/WebTracking.bundle.js",
+                    name: "MSCI",
+                    cfg: {
+
+                        ingestionKey: "0684faad1fa84f51a61927c82a2b9ee8-96bcd81d-fe4d-4475-89f0-e3fcff0d9fe7-7575",
+                        endpointUrl: "https://mobile.events.data.microsoft.com/OneCollector/1.0/",
+                        autoCapture: {
+                            view: true,
+                            click: true
+                        },
+                        orgInfo: {
+                            orgId: "6e80e1eb-af41-4507-9f42-68851f1951c2",
+                            orgTenantId: "f2ad4d2a-2b3f-4e20-b9c2-0b4ed161543b",
+                            orgGeo: "USA"
+                        }
+                    }
+                });
+        </script>
 
   <!-- CI Journeys Web Tracking Script -->
         
