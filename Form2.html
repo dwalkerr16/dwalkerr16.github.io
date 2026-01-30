@@ -19,7 +19,6 @@
 <input name="lastname" type="text" placeholder="Last Name" required>
 <input name="emailaddress1" type="email" placeholder="Email Address" required>
 <input name="companyname" type="text" placeholder="Company Name" required>
-<input name="message" type="text" placeholder="Message" required>
 <button type="submit">Submit</button>
 </form>
   <h1>CI Journeys Form Test</h1>
@@ -43,26 +42,22 @@
             },
             {
                 FormFieldName: "companyname",
-                DataverseFieldName: "companyname",
+                DataverseFieldName: "parentcustomeridname",
             },
             {
                 FormFieldName: "emailaddress1",
                 DataverseFieldName: "emailaddress1",
-            },
-            {
-                FormFieldName: "hdvi_message",
-                DataverseFieldName: "hdvi_message",
             },
 
         ];
 
         form.addEventListener("submit", (e) => {
             const serializedForm = d365mktformcapture.serializeForm(form, mappings);
-            console.log(JSON.stringify(serializedForm)); // NOTE: enable for debugging
+            // console.log(JSON.stringify(serializedForm)); // NOTE: enable for debugging
             const payload = serializedForm.SerializedForm.build();
 
             const captureConfig = {
-                FormId: "a9155dcb-67ea-f011-8543-7c1e52482fd5",
+                FormId: "c881d2c7-e5fd-f011-8406-000d3a9ea95f",
                 FormApiUrl: "https://public-usa.mkt.dynamics.com/api/v1.0/orgs/8514bf74-c346-4f70-bbb3-1a5cb83e0ad4/landingpageforms"
             }
             d365mktformcapture.submitForm(captureConfig, payload);
