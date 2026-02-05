@@ -12,14 +12,14 @@
                     name: "MSCI",
                     cfg: {
 
-                        ingestionKey: "56351975e37e430195584f7726143f7c-1393d87f-299b-47e0-9d8d-178b0c0adf47-6357",
+                        ingestionKey: "0684faad1fa84f51a61927c82a2b9ee8-96bcd81d-fe4d-4475-89f0-e3fcff0d9fe7-7575",
                         endpointUrl: "https://mobile.events.data.microsoft.com/OneCollector/1.0/",
                         autoCapture: {
                             view: true,
                             click: true
                         },
                         orgInfo: {
-                            orgId: "8514bf74-c346-4f70-bbb3-1a5cb83e0ad4",
+                            orgId: "6e80e1eb-af41-4507-9f42-68851f1951c2",
                             orgTenantId: "f2ad4d2a-2b3f-4e20-b9c2-0b4ed161543b",
                             orgGeo: "USA"
                         }
@@ -73,18 +73,17 @@
             },
 
         ];
-
-        form.addEventListener("submit", (e) => {
-            const serializedForm = d365mktformcapture.serializeForm(form, mappings);
-            console.log(JSON.stringify(serializedForm)); // NOTE: enable for debugging
-            const payload = serializedForm.SerializedForm.build();
-
-            const captureConfig = {
-                FormId: "c881d2c7-e5fd-f011-8406-000d3a9ea95f",
-                FormApiUrl: "https://public-usa.mkt.dynamics.com/api/v1.0/orgs/8514bf74-c346-4f70-bbb3-1a5cb83e0ad4/landingpageforms"
-            }
-            d365mktformcapture.submitForm(captureConfig, payload);
-        }, true);
+	        form.addEventListener("submit", (e) => {
+	            const serializedForm = d365mktformcapture.serializeForm(form, mappings);
+	            // console.log(JSON.stringify(serializedForm)); // NOTE: enable for debugging
+	            const payload = serializedForm.SerializedForm.build();
+	
+	            const captureConfig = {
+	                FormId: "d47a02d4-76d1-f011-bbd2-6045bdef6a9b",
+	                FormApiUrl: "https://public-usa.mkt.dynamics.com/api/v1.0/orgs/6e80e1eb-af41-4507-9f42-68851f1951c2/landingpageforms"
+	            }
+	            d365mktformcapture.submitForm(captureConfig, payload);
+	        }, true);
     });
 </script>
 
