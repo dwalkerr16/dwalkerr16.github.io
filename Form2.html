@@ -76,14 +76,14 @@
 	        form.addEventListener("submit", (e) => {
 				e.preventDefault();
 	            const serializedForm = d365mktformcapture.serializeForm(form, mappings);
-	            // console.log(JSON.stringify(serializedForm)); // NOTE: enable for debugging
-	            const payload = serializedForm.SerializedForm.build();
+	            console.log(JSON.stringify(serializedForm)); // NOTE: enable for debugging
+	            //const payload = serializedForm.SerializedForm.build();
 	
-	            const captureConfig = {
-	                FormId: "d47a02d4-76d1-f011-bbd2-6045bdef6a9b",
-	                FormApiUrl: "https://public-usa.mkt.dynamics.com/api/v1.0/orgs/6e80e1eb-af41-4507-9f42-68851f1951c2/landingpageforms"
-	            }
-	            d365mktformcapture.submitForm(captureConfig, payload);
+	            //const captureConfig = {
+	            //    FormId: "d47a02d4-76d1-f011-bbd2-6045bdef6a9b",
+	            //    FormApiUrl: "https://public-usa.mkt.dynamics.com/api/v1.0/orgs/6e80e1eb-af41-4507-9f42-68851f1951c2/landingpageforms"
+	            //}
+	            //d365mktformcapture.submitForm(captureConfig, payload);
 	        }, true);
     });
 </script>
