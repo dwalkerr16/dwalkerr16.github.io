@@ -99,8 +99,9 @@
         ];
 
         form.addEventListener("submit", (e) => {
-            const serializedForm = d365mktformcapture.serializeForm(form, mappings);
-            // console.log(JSON.stringify(serializedForm)); // NOTE: enable for debugging
+           //e.preventDefault();
+           const serializedForm = d365mktformcapture.serializeForm(form, mappings);
+            console.log(JSON.stringify(serializedForm)); // NOTE: enable for debugging
             const payload = serializedForm.SerializedForm.build();
 
             const captureConfig = {
