@@ -38,8 +38,7 @@
         <meta name="referrer" content="never">
         <meta type="xrm/designer/setting" name="type" value="marketing-designer-content-editor-document">
         <meta type="xrm/designer/setting" name="layout-editable" value="marketing-designer-layout-editable">
-    </head>
-    <body>
+  
 <form id="form1">
 <input name="firstname" type="text" placeholder="First Name" required>
 <input name="lastname" type="text" placeholder="Last Name" required>
@@ -105,7 +104,7 @@
         ];
 
         form.addEventListener("submit", (e) => {
-           e.preventDefault();
+           // e.preventDefault();
            const serializedForm = d365mktformcapture.serializeForm(form, mappings);
             console.log(JSON.stringify(serializedForm)); // NOTE: enable for debugging
             const payload = serializedForm.SerializedForm.build();
