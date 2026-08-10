@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+
+  <h1>CI Journeys Tracking + Form Test</h1>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <title>Contact Us form</title>
+         <h1>Contact Us form</h1>
+        <meta name="referrer" content="never">
+        <meta type="xrm/designer/setting" name="type" value="marketing-designer-content-editor-document">
+        <meta type="xrm/designer/setting" name="layout-editable" value="marketing-designer-layout-editable">
+  
+<form id="form1">
+<input name="firstname" type="text" placeholder="First Name" required>
+<input name="lastname" type="text" placeholder="Last Name" required>
+<input name="emailaddress1" type="email" placeholder="Email Address" required>
+<input name="jobtitle" type="text" placeholder="Job Title" required>
+<input name="CompanyName" type="text" placeholder="Company Name" required>
+<input name="industry" type="text" placeholder="Industry" required>
+<input name="description" type="text" placeholder="description" required>  
+
+<button type="submit">Submit</button>
+</form>
+  <!-- CI Journeys Form Embed -- Form Capture - Contact us Form -->
+
+<script src='https://formui-usa1.mkt.dynamics.com.mcas.ms/usa/FormCapture/FormCapture.bundle.js?McasCtx=8389280&McasTsid=26311'></script>
+<script>
+    // NOTE: for reference see https://go.microsoft.com/fwlink/?linkid=2250770
+
+    d365mktformcapture.waitForElement("#form1") // example: "#form1" as a selector for form with id="form1"
+    .then(form => {
+        const mappings = [
+            {
+                FormFieldName: "firstname",
+                DataverseFieldName: "firstname",
+            },
+            {
+                FormFieldName: "lastname",
+                DataverseFieldName: "lastname",
+            },
+            {
+                FormFieldName: "emailaddress1",
+                DataverseFieldName: "emailaddress1",
+            },
+            {
+                FormFieldName: "description",
+                DataverseFieldName: "description",
+            },
+            {
+                DataverseFieldName: "lvp_guidehouseservice",
+                DataverseFieldValue: "{\"Id\":\"246e4c60-0d5b-ef11-a316-000d3a348f7e\",\"LogicalName\":\"lvp_guidehouseservice\"}",
+            },
+            {
+                FormFieldName: "estimatedamount",
+                DataverseFieldName: "estimatedamount",
+            },
+
+        ];
+
+        form.addEventListener("submit", (e) => {
+            const serializedForm = d365mktformcapture.serializeForm(form, mappings);
+            // console.log(JSON.stringify(serializedForm)); // NOTE: enable for debugging
+            const payload = serializedForm.SerializedForm.build();
+
+            const captureConfig = {
+                FormId: "c1e65ce7-0095-f111-8076-00224804f864",
+                FormApiUrl: "https://public-usa.mkt.dynamics.com/api/v1.0/orgs/b577f57d-d194-4c27-b9c9-6cfdbdc904f6/landingpageforms"
+            }
+            d365mktformcapture.submitForm(captureConfig, payload);
+        }, true);
+    });
+</script>
