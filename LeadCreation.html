@@ -43,16 +43,10 @@
 <input name="firstname" type="text" placeholder="First Name" required>
 <input name="lastname" type="text" placeholder="Last Name" required>
 <input name="emailaddress1" type="email" placeholder="Email Address" required>
-  <input name="jobtitle" type="text" placeholder="Job Title" required>
+<input name="jobtitle" type="text" placeholder="Job Title" required>
 <input name="CompanyName" type="text" placeholder="Company Name" required>
-<!--
-  <input name="parentaccountid" type="text" placeholder="parentaccountid" required>
-  <input name="nav_subpractice" type="text" placeholder="nav_subpractice" required>
-  <input name="lvp_guidehouseservice" type="text" placeholder="lvp_guidehouseservice" required>
-  -->
-  <input name="description" type="text" placeholder="description" required>
-    <input name="estimatedamount" type="text" placeholder="estimatedamount" required>
-  
+<input name="industry" type="text" placeholder="Industry" required>
+<input name="description" type="text" placeholder="description" required>  
 
 <button type="submit">Submit</button>
 </form>
@@ -84,6 +78,10 @@
             {
                 FormFieldName: "CompanyName",
                 DataverseFieldName: "Company Name",
+            },
+            {
+                FormFieldName: "industry",
+                DataverseFieldName: "msdyncrm_industry",
             },
             {
                 DataverseFieldName: "parentaccountid",
