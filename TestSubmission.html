@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CIJ Form Capture Test</title>
 
-    <script src="https://formui-usa1.mkt.dynamics.com/usa/Formapture.bundle.jsscript>
+    <script src="https://formui-usa1.mkt.dynamics.com/usa/FormCapture/FormCapture.bundle.js"></script>
 </head>
 <body>
 
@@ -14,142 +14,141 @@
     <form id="form1">
 
         <p>
-            <input name="firstname"
-                   type="text"
-                   placeholder="First Name"
-                   required>
+            <input
+                name="firstname"
+                type="text"
+                placeholder="First Name"
+                required>
         </p>
 
         <p>
-            <input name="lastname"
-                   type="text"
-                   placeholder="Last Name"
-                   required>
+            <input
+                name="lastname"
+                type="text"
+                placeholder="Last Name"
+                required>
         </p>
 
         <p>
-            <input name="emailaddress1"
-                   type="email"
-                   placeholder="Email Address"
-                   required>
+            <input
+                name="emailaddress1"
+                type="email"
+                placeholder="Email Address"
+                required>
         </p>
 
         <p>
-            <input name="description"
-                   type="text"
-                   placeholder="Description"
-                   required>
+            <input
+                name="description"
+                type="text"
+                placeholder="Description"
+                required>
         </p>
 
         <p>
-            <input name="estimatedamount"
-                   type="number"
-                   step="0.01"
-                   placeholder="Estimated TCV"
-                   required>
+            <input
+                name="estimatedamount"
+                type="number"
+                step="0.01"
+                placeholder="Estimated TCV"
+                required>
         </p>
 
-        <button type="submit">
-            Submit
-        </button>
+        <button type="submit">Submit</button>
 
     </form>
 
     <script>
 
-        d365mktformcapture
-            .waitForElement("#form1")
-            .then(form => {
+        console.log("Page Loaded");
 
-                console.log("Form found");
+        if (typeof d365mktformcapture === "undefined") {
+            console.error("Form Capture Library Failed To Load");
+        } else {
+            console.log("Form Capture Library Loaded");
+        }
 
-                const mappings = [
+        d365mktformcapture.waitForElement("#form1")
+        .then(form => {
 
-                    {
-                        FormFieldName: "firstname",
-                        DataverseFieldName: "firstname"
-                    },
+            console.log("Form Found");
 
-                    {
-                        FormFieldName: "lastname",
-                        DataverseFieldName: "lastname"
-                    },
+            const mappings = [
+                {
+                    FormFieldName: "firstname",
+                    DataverseFieldName: "firstname"
+                },
+                {
+                    FormFieldName: "lastname",
+                    DataverseFieldName: "lastname"
+                },
+                {
+                    FormFieldName: "emailaddress1",
+                    DataverseFieldName: "emailaddress1"
+                },
+                {
+                    FormFieldName: "description",
+                    DataverseFieldName: "description"
+                },
+                {
+                    DataverseFieldName: "lvp_guidehouseservice",
+                    DataverseFieldValue: "{\"Id\":\"246e4c60-0d5b-ef11-a316-000d3a348f7e\",\"LogicalName\":\"lvp_guidehouseservice\"}"
+                },
+                {
+                    FormFieldName: "estimatedamount",
+                    DataverseFieldName: "estimatedamount"
+                }
+            ];
 
-                    {
-                        FormFieldName: "emailaddress1",
-                        DataverseFieldName: "emailaddress1"
-                    },
+            form.addEventListener("submit", function(e) {
 
-                    {
-                        FormFieldName: "description",
-                        DataverseFieldName: "description"
-                    },
+                e.preventDefault();
 
-                    {
-                        DataverseFieldName: "lvp_guidehouseservice",
-                        DataverseFieldValue:
-                            "{\"Id\":\"246e4c60-0d5b-ef11-a316-000d3a348f7e\",\"LogicalName\":\"lvp_guidehouseservice\"}"
-                    },
+                console.log("Submit Clicked");
 
-                    {
-                        FormFieldName: "estimatedamount",
-                        DataverseFieldName: "estimatedamount"
-                    }
-
-                ];
-
-                form.addEventListener("submit", function (e) {
-
-                    e.preventDefault();
-
-                    console.log("Submit clicked");
-
-                    const serializedForm =
-                        d365mktformcapture.serializeForm(
-                            form,
-                            mappings
-                        );
-
-                    console.log(
-                        "Serialized Form",
-                        serializedForm
+                const serializedForm =
+                    d365mktformcapture.serializeForm(
+                        form,
+                        mappings
                     );
 
-                    const payload =
-                        serializedForm.SerializedForm.build();
-
-                    console.log(
-                        "Payload",
-                        payload
-                    );
-
-                    const captureConfig = {
-
-                        FormId:
-                            "c1e65ce7-0095-f111-8076-00224804f864",
-
-                        FormApiUrl:
-                            "https://public-usa.mkt.dynamics.com/api/v1.0/orgs/b577f57d-d194-4c27-b9c9-6cfdbdc904f6/landingpageforms"
-                    };
-
-                    console.log(
-                        "Submitting to CIJ"
-                    );
-
-                    d365mktformcapture.submitForm(
-                        captureConfig,
-                        payload
-                    );
-
-                }, true);
-
-            })
-            .catch(error => {
-                console.error(
-                    "Form Capture Error",
-                    error
+                console.log(
+                    "Serialized Form",
+                    serializedForm
                 );
+
+                const payload =
+                    serializedForm.SerializedForm.build();
+
+                console.log(
+                    "Payload",
+                    payload
+                );
+
+                const captureConfig = {
+                    FormId:
+                        "c1e65ce7-0095-f111-8076-00224804f864",
+
+                    FormApiUrl:
+                        "https://public-usa.mkt.dynamics.com/api/v1.0/orgs/b577f57d-d194-4c27-b9c9-6cfdbdc904f6/landingpageforms"
+                };
+
+                console.log("Submitting To CIJ");
+
+                d365mktformcapture.submitForm(
+                    captureConfig,
+                    payload
+                );
+
             });
+
+        })
+        .catch(error => {
+            console.error(
+                "Error Initializing Form Capture",
+                error
+            );
+        });
 
     </script>
 
