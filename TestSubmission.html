@@ -121,4 +121,37 @@
                     console.log(
                         "Payload",
                         payload
-               
+                    );
+
+                    const captureConfig = {
+
+                        FormId:
+                            "c1e65ce7-0095-f111-8076-00224804f864",
+
+                        FormApiUrl:
+                            "https://public-usa.mkt.dynamics.com/api/v1.0/orgs/b577f57d-d194-4c27-b9c9-6cfdbdc904f6/landingpageforms"
+                    };
+
+                    console.log(
+                        "Submitting to CIJ"
+                    );
+
+                    d365mktformcapture.submitForm(
+                        captureConfig,
+                        payload
+                    );
+
+                }, true);
+
+            })
+            .catch(error => {
+                console.error(
+                    "Form Capture Error",
+                    error
+                );
+            });
+
+    </script>
+
+</body>
+</html>
