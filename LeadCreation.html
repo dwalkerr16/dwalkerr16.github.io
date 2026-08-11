@@ -1,124 +1,132 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>CI Journeys Form Test</title>
-  
-  <!-- CI Journeys Web Tracking Script -->
-  
-<script>
-                (function (a, t, i) { var e = "MSCI"; var s = "Analytics"; var o = e + "queue"; a[o] = a[o] || []; var r = a[e] || function (n) { var t = {}; t[s] = {}; function e(e) { while (e.length) { var r = e.pop(); t[s][r] = function (e) { return function () { a[o].push([e, n, arguments]) } }(r) } } var r = "track"; var i = "set"; e([r + "Event", r + "View", r + "Action", i + "Config", i + "Property", i + "User", "initialize", "teardown"]); return t }(i.name); var n = i.name; if (!a[e]) { a[n] = r[s]; a[o].push(["new", n]); setTimeout(function () { var e = "script"; var r = t.createElement(e); r.async = 1; r.src = i.src; var n = t.getElementsByTagName(e)[0]; n.parentNode.insertBefore(r, n) }, 1) } else { a[n] = new r[s] } if (i.user) { a[n].setUser(i.user) } if (i.props) { for (var c in i.props) { a[n].setProperty(c, i.props[c]) } } a[n].initialize(i.cfg) })(window, document, {
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CI Journeys Tracking + Form Capture Test</title>
 
-                    src: "https://rdrect-usa1.mkt.dynamics.com/webtracking/WebTracking/WebTracking.bundle.js",
-                    name: "MSCI",
-                    cfg: {
+  <!-- ==========================================================
+       1. CI Journeys web tracking script (unchanged)
+       ========================================================== -->
+  <script>
+    (function (a, t, i) { var e = "MSCI"; var s = "Analytics"; var o = e + "queue"; a[o] = a[o] || []; var r = a[e] || function (n) { var t = {}; t[s] = {}; function e(e) { while (e.length) { var r = e.pop(); t[s][r] = function (e) { return function () { a[o].push([e, n, arguments]) } }(r) } } var r = "track"; var i = "set"; e([r + "Event", r + "View", r + "Action", i + "Config", i + "Property", i + "User", "initialize", "teardown"]); return t }(i.name); var n = i.name; if (!a[e]) { a[n] = r[s]; a[o].push(["new", n]); setTimeout(function () { var e = "script"; var r = t.createElement(e); r.async = 1; r.src = i.src; var n = t.getElementsByTagName(e)[0]; n.parentNode.insertBefore(r, n) }, 1) } else { a[n] = new r[s] } if (i.user) { a[n].setUser(i.user) } if (i.props) { for (var c in i.props) { a[n].setProperty(c, i.props[c]) } } a[n].initialize(i.cfg) })(window, document, {
+      src: "https://rdrect-usa1.mkt.dynamics.com/webtracking/WebTracking/WebTracking.bundle.js",
+      name: "MSCI",
+      cfg: {
+        ingestionKey: "4d5cbb03ecb749778fadf16dea2bad1b-2e54cc28-8d58-4ebd-9404-77182e905152-7356",
+        endpointUrl: "https://mobile.events.data.microsoft.com/OneCollector/1.0/",
+        autoCapture: {
+          view: true,
+          click: true
+        },
+        orgInfo: {
+          orgId: "b577f57d-d194-4c27-b9c9-6cfdbdc904f6",
+          orgTenantId: "4ee48f43-e15d-4f4a-ad55-d0990aac660e",
+          orgGeo: "USA"
+        }
+      }
+    });
+  </script>
 
-                        ingestionKey: "4d5cbb03ecb749778fadf16dea2bad1b-2e54cc28-8d58-4ebd-9404-77182e905152-7356",
-                        endpointUrl: "https://mobile.events.data.microsoft.com/OneCollector/1.0/",
-                        autoCapture: {
-                            view: true,
-                            click: true
-                        },
-                        orgInfo: {
-                            orgId: "b577f57d-d194-4c27-b9c9-6cfdbdc904f6",
-                            orgTenantId: "4ee48f43-e15d-4f4a-ad55-d0990aac660e",
-                            orgGeo: "USA"
-                        }
-                    }
-                });
-        </script>
-  
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 480px; margin: 2rem auto; padding: 0 1rem; }
+    input { display: block; width: 100%; margin-bottom: .5rem; padding: .5rem; box-sizing: border-box; }
+    button { padding: .6rem 1.2rem; }
+    #status { margin-top: 1rem; font-weight: 600; }
+  </style>
 </head>
 <body>
 
-  <h1>CI Journeys Tracking + Form Test</h1>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-         <title>Contact Us form</title>
-         <h1>Contact Us form</h1>
-        <meta name="referrer" content="never">
-        <meta type="xrm/designer/setting" name="type" value="marketing-designer-content-editor-document">
-        <meta type="xrm/designer/setting" name="layout-editable" value="marketing-designer-layout-editable">
-  
-<form id="form1">
-<input name="firstname" type="text" placeholder="First Name" required>
-<input name="lastname" type="text" placeholder="Last Name" required>
-<input name="emailaddress1" type="email" placeholder="Email Address" required>
-<input name="jobtitle" type="text" placeholder="Job Title" required>
-<input name="CompanyName" type="text" placeholder="Company Name" required>
-<input name="industry" type="text" placeholder="Industry" required>
-<input name="description" type="text" placeholder="description" required>  
+  <h1>Contact Us form</h1>
 
-<button type="submit">Submit</button>
-</form>
-  <!-- CI Journeys Form Embed -- Form Capture - Contact us Form -->
+  <form id="form1">
+    <input name="firstname" type="text" placeholder="First Name" required>
+    <input name="lastname" type="text" placeholder="Last Name" required>
+    <input name="emailaddress1" type="email" placeholder="Email Address" required>
+    <input name="jobtitle" type="text" placeholder="Job Title" required>
+    <input name="companyname" type="text" placeholder="Company Name" required>
+    <input name="industry" type="text" placeholder="Industry" required>
+    <input name="description" type="text" placeholder="Description" required>
 
-<script src='https://formui-usa1.mkt.dynamics.com.mcas.ms/usa/FormCapture/FormCapture.bundle.js?McasCtx=8389280&McasTsid=26311'></script>
-<script>
-    // NOTE: for reference see https://go.microsoft.com/fwlink/?linkid=2250770
+    <!-- Prefilled default. Change to type="number" value="0" if the tester
+         should be able to see and override it. -->
+    <input name="estimatedamount" type="hidden" value="0">
 
-    d365mktformcapture.waitForElement("#form1") // example: "#form1" as a selector for form with id="form1"
-    .then(form => {
-        const mappings = [
-            {
-                FormFieldName: "firstname",
-                DataverseFieldName: "firstname",
-            },
-            {
-                FormFieldName: "lastname",
-                DataverseFieldName: "lastname",
-            },
-            {
-                FormFieldName: "emailaddress1",
-                DataverseFieldName: "emailaddress1",
-            },
-            {
-                FormFieldName: "jobtitle",
-                DataverseFieldName: "jobtitle",
-            },
-            {
-                FormFieldName: "CompanyName",
-                DataverseFieldName: "Company Name",
-            },
-            {
-                FormFieldName: "industry",
-                DataverseFieldName: "msdyncrm_industry",
-            },
-            {
-                DataverseFieldName: "parentaccountid",
-                DataverseFieldValue: "{\"Id\":\"a8df9e83-e07f-f111-ab0e-70a8a5af0770\",\"LogicalName\":\"account\"}",
-            },
-            {
-                DataverseFieldName: "nav_subpractice",
-                DataverseFieldValue: "{\"Id\":\"3b633ccb-79cf-eb11-bacc-000d3a58dbbc\",\"LogicalName\":\"nav_subpractice\"}",
-            },
-            {
-                DataverseFieldName: "lvp_guidehouseservice",
-                DataverseFieldValue: "{\"Id\":\"246e4c60-0d5b-ef11-a316-000d3a348f7e\",\"LogicalName\":\"lvp_guidehouseservice\"}",
-            },
-            {
-                FormFieldName: "description",
-                DataverseFieldName: "description",
-            },
-            {
-                FormFieldName: "estimatedamount",
-                DataverseFieldName: "estimatedamount",
-            },
+    <button type="submit">Submit</button>
+  </form>
 
+  <div id="status"></div>
+
+  <!-- ==========================================================
+       2. Form capture bundle
+       FIXED: was the .mcas.ms proxy host with McasCtx/McasTsid
+       query string, which only resolves inside a Defender for
+       Cloud Apps session.
+       ========================================================== -->
+  <script src="https://formui-usa1.mkt.dynamics.com/usa/FormCapture/FormCapture.bundle.js"></script>
+  <script>
+    // Reference: https://go.microsoft.com/fwlink/?linkid=2250770
+
+    d365mktformcapture.waitForElement("#form1")
+      .then(function (form) {
+        var mappings = [
+          { FormFieldName: "firstname",      DataverseFieldName: "firstname" },
+          { FormFieldName: "lastname",       DataverseFieldName: "lastname" },
+          { FormFieldName: "emailaddress1",  DataverseFieldName: "emailaddress1" },
+          { FormFieldName: "jobtitle",       DataverseFieldName: "jobtitle" },
+
+          // FIXED: was "Company Name". Logical names are lowercase, no spaces.
+          { FormFieldName: "companyname",    DataverseFieldName: "companyname" },
+
+          { FormFieldName: "industry",       DataverseFieldName: "msdyncrm_industry" },
+          { FormFieldName: "description",    DataverseFieldName: "description" },
+          { FormFieldName: "estimatedamount", DataverseFieldName: "estimatedamount" },
+
+          // Lookups — LogicalName must be the TARGET TABLE, not the column.
+          {
+            DataverseFieldName: "parentaccountid",
+            DataverseFieldValue: "{\"Id\":\"a8df9e83-e07f-f111-ab0e-70a8a5af0770\",\"LogicalName\":\"account\"}",
+          },
+          {
+            DataverseFieldName: "nav_subpractice",
+            DataverseFieldValue: "{\"Id\":\"3b633ccb-79cf-eb11-bacc-000d3a58dbbc\",\"LogicalName\":\"nav_subpractice\"}",
+          },
+          {
+            DataverseFieldName: "lvp_guidehouseservice",
+            DataverseFieldValue: "{\"Id\":\"246e4c60-0d5b-ef11-a316-000d3a348f7e\",\"LogicalName\":\"lvp_guidehouseservice\"}",
+          },
         ];
 
-        form.addEventListener("submit", (e) => {
-            const serializedForm = d365mktformcapture.serializeForm(form, mappings);
-            // console.log(JSON.stringify(serializedForm)); // NOTE: enable for debugging
-            const payload = serializedForm.SerializedForm.build();
+        var captureConfig = {
+          FormId: "c986ee08-0c81-f111-ab0e-000d3a33672a",
+          FormApiUrl: "https://public-usa.mkt.dynamics.com/api/v1.0/orgs/b577f57d-d194-4c27-b9c9-6cfdbdc904f6/landingpageforms"
+        };
 
-            const captureConfig = {
-                FormId: "c986ee08-0c81-f111-ab0e-000d3a33672a",
-                FormApiUrl: "https://public-usa.mkt.dynamics.com/api/v1.0/orgs/b577f57d-d194-4c27-b9c9-6cfdbdc904f6/landingpageforms"
-            }
-            d365mktformcapture.submitForm(captureConfig, payload);
+        form.addEventListener("submit", function (e) {
+          // FIXED: without this the page navigates away and cancels the
+          // in-flight POST before Dataverse receives it.
+          e.preventDefault();
+
+          var status = document.getElementById("status");
+          var serialized = d365mktformcapture.serializeForm(form, mappings);
+          console.log("Serialized payload:", JSON.stringify(serialized));
+
+          var payload = serialized.SerializedForm.build();
+          status.textContent = "Submitting…";
+
+          d365mktformcapture.submitForm(captureConfig, payload)
+            .then(function () {
+              status.textContent = "Submitted. Check the form's submission list in Journeys.";
+              form.reset();
+            })
+            .catch(function (err) {
+              status.textContent = "Submission failed — see the browser console.";
+              console.error("submitForm error:", err);
+            });
         }, true);
-    });
-</script>
-  
+      });
+  </script>
+
 </body>
 </html>
