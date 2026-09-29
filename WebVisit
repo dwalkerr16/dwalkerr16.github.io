@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CI Journeys Tracking + Form Capture Test</title>
+
+  <!-- ==========================================================
+       1. CI Journeys web tracking script (unchanged)
+       ========================================================== -->
+ <script>
+    (function (a, t, i) { var e = "MSCI"; var s = "Analytics"; var o = e + "queue"; a[o] = a[o] || []; var r = a[e] || function (n) { var t = {}; t[s] = {}; function e(e) { while (e.length) { var r = e.pop(); t[s][r] = function (e) { return function () { a[o].push([e, n, arguments]) } }(r) } } var r = "track"; var i = "set"; e([r + "Event", r + "View", r + "Action", i + "Config", i + "Property", i + "User", "initialize", "teardown"]); return t }(i.name); var n = i.name; if (!a[e]) { a[n] = r[s]; a[o].push(["new", n]); setTimeout(function () { var e = "script"; var r = t.createElement(e); r.async = 1; r.src = i.src; var n = t.getElementsByTagName(e)[0]; n.parentNode.insertBefore(r, n) }, 1) } else { a[n] = new r[s] } if (i.user) { a[n].setUser(i.user) } if (i.props) { for (var c in i.props) { a[n].setProperty(c, i.props[c]) } } a[n].initialize(i.cfg) })(window, document, {
+      src: "https://rdrect-usa1.mkt.dynamics.com/webtracking/WebTracking/WebTracking.bundle.js",
+      name: "MSCI",
+      cfg: {
+        ingestionKey: "4d5cbb03ecb749778fadf16dea2bad1b-2e54cc28-8d58-4ebd-9404-77182e905152-7356",
+        endpointUrl: "https://mobile.events.data.microsoft.com/OneCollector/1.0/",
+        autoCapture: {
+          view: true,
+          click: true
+        },
+        orgInfo: {
+          orgId: "b577f57d-d194-4c27-b9c9-6cfdbdc904f6",
+          orgTenantId: "4ee48f43-e15d-4f4a-ad55-d0990aac660e",
+          orgGeo: "USA"
+        }
+      }
+    });
+  </script>
+
+  
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 480px; margin: 2rem auto; padding: 0 1rem; }
+    input { display: block; width: 100%; margin-bottom: .5rem; padding: .5rem; box-sizing: border-box; }
+    button { padding: .6rem 1.2rem; }
+    #status { margin-top: 1rem; font-weight: 600; }
+  </style>
+</head>
+<body>
+
+  <h1>Website Visit</h1>
+
+
+  <div id="status"></div>
+
+
+
+</body>
+</html>
